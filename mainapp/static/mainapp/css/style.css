@@ -1,0 +1,121 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* GENERAL */
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+h1, h2 {
+    margin-bottom: 15px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+/* NAVBAR */
+header {
+    background-color: #1e1e2f;
+    padding: 15px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.btn-register {
+    background-color: #4CAF50;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(to right, #2639e2, #2ea3c7);
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.btn-primary {
+    background-color: white;
+    color: #2639e2;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* FEATURES */
+.features {
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 50px;
+}
+
+.feature-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    
+}
+
+/* HOW IT WORKS */
+.how-it-works {
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.step {
+    width: 30%;
+}
+
+/* FOOTER */
+footer {
+    background-color: #1e1e2f;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}

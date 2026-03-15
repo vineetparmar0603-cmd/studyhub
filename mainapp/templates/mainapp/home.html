@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StudyHub - Learn Together</title>
+    <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="container nav-container">
+        <div class="logo">StudyHub</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Groups</a>
+            <a href="#">Notes</a>
+            <a href="/account/login/">Login</a> 
+            <a href="/account/register/" class="btn-register">Register</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="container">
+        <h1>Find Study Groups. Share Notes. Grow Together.</h1>
+        <p>Join subject-based groups and unlock premium learning resources.</p>
+        <a href="/account/login/" class="btn-primary">Get Started</a>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="container">
+        <h2>Our Features</h2>
+        <div class="feature-box">
+
+            <div class="card">
+                <h3>Study Groups</h3>
+                <p>Create or join groups based on your subjects.</p>
+            </div>
+
+            <div class="card">
+                <h3>Notes Sharing</h3>
+                <p>Upload and download notes within your group.</p>
+            </div>
+
+            <div class="card">
+                <h3>Premium Access</h3>
+                <p>Upgrade to access exclusive materials.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+    <div class="container">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h4>1. Register</h4>
+                <p>Create your account easily.</p>
+            </div>
+            <div class="step">
+                <h4>2. Join Groups</h4>
+                <p>Find groups related to your subject.</p>
+            </div>
+            <div class="step">
+                <h4>3. Share & Learn</h4>
+                <p>Collaborate and grow together.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 StudyHub | Final Year Project</p>
+</footer>
+
+</body>
+</html>

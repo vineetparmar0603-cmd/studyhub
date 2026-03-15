@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Group</title>
+
+<link rel="stylesheet" href="{% static 'groups/css/groups.css' %}">
+
+</head>
+
+<body>
+
+    
+
+<div class="container">
+
+<h2>Create Study Group</h2>
+
+<form method="POST">
+{% csrf_token %}
+
+<input type="text" name="name" placeholder="Group Name" required>
+
+<input type="text" name="subject" placeholder="Subject" required>
+
+<textarea name="description" placeholder="Group Description"></textarea>
+
+<button type="submit">Create Group</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

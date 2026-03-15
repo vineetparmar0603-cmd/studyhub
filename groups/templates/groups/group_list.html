@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Study Groups</title>
+
+<link rel="stylesheet" href="{% static 'groups/css/groups.css' %}">
+
+</head>
+
+<body>
+
+<div class="group-container">
+
+<h2>Study Groups</h2>
+
+<a href="/groups/create/" class="create-btn">Create New Group</a>
+
+{% for group in groups %}
+
+<div class="group-card">
+
+<div class="group-title">{{ group.name }}</div>
+
+<div class="group-subject">Subject: {{ group.subject }}</div>
+
+<p>{{ group.description }}</p>
+
+</div>
+
+{% empty %}
+
+<p>No groups available.</p>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

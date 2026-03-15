@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - StudyHub</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/dashboard.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="container nav-container">
+        <div class="logo">StudyHub</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="#">Groups</a>
+            <a href="#">Notes</a>        
+            <a href="/account/login/">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<section class="dashboard">
+
+    <h1>Welcome to Your Dashboard</h1>
+    <p>Start learning and collaborating with your study groups.</p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>My Study Groups</h3>
+            <p>View or join study groups.</p>
+        </div>
+
+        <div class="card">
+            <h3>My Notes</h3>
+            <p>Access your shared notes.</p>
+        </div>
+
+        <div class="card">
+            <h3>Upload Notes</h3>
+            <p>Share notes with your group.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="dashboard-container">
+
+    <h2>My Study Groups</h2>
+
+    <a href="/groups/create/" class="create-group-btn">Create New Group</a>
+
+    <div class="groups-section">
+
+        {% for group in groups %}
+
+        <div class="group-card">
+            <h3>{{ group.name }}</h3>
+            <p>Subject: {{ group.subject }}</p>
+        </div>
+
+        {% empty %}
+
+        <p>You have not joined any groups yet.</p>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 StudyHub Dashboard</p>
+</footer>
+
+</body>
+</html>

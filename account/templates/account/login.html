@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - StudyHub</title>
+    <link rel="stylesheet" href="{% static 'account/css/login.css' %}">
+</head>
+
+<body>
+
+<header>
+    <div class="container nav-container">
+        <div class="logo">StudyHub</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="#">Groups</a>
+            <a href="#">Notes</a>
+        </nav>
+    </div>
+</header>
+
+<section class="login-section">
+
+    <div class="login-box">
+
+        <h2>Login to StudyHub</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn-login">Login</button>
+
+        </form>
+
+        <p class="register-link">
+            Don't have an account?
+             <a href="/account/register/">Register</a>
+        </p>
+
+    </div>
+
+</section>
+
+</body>
+</html>
