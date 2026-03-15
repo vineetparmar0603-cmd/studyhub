@@ -65,6 +65,15 @@ nav a {
     background:#2f66b2;
 }
 
+.create-group-section h2{
+    margin-left: 690px;
+}
+
+.group-card a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .groups-section{
     margin-top:30px;
 }

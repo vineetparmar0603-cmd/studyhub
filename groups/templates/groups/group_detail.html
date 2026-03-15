@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static 'groups/css/groups.css' %}">
+    </head>
+    <body>
+       
+        <div class="group-container">
+
+            <h2 class="group-title">{{ group.name }}</h2>
+
+            <a href="{% url 'upload_note' group.id %}" class="upload-btn">Upload Notes</a>
+
+            <h3 class="notes-heading">Shared Notes</h3>
+
+            {% for note in notes %}
+
+            <div class="note-card">
+            <h4>{{ note.title }}</h4>
+            <a href="{{ note.file.url }}" class="download-btn">Download</a>
+            </div>
+
+            {% empty %}
+
+            <p class="no-notes">No notes uploaded yet.</p>
+
+            {% endfor %}
+
+        </div>
+    </body>
+</html>

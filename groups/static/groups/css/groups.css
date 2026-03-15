@@ -5,7 +5,33 @@ body{
     padding:0;
 }
 
+.search-bar{
+margin-bottom:20px;
+}
 
+.search-bar input{
+padding:8px;
+margin: 30px;
+margin-left: 690px;
+width:500px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+.search-bar button{
+padding:8px 15px;
+width: 100px;
+background:#3a7bd5;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.search-bar button:hover{
+background:#3a7bd5;
+
+}
 
 .container{
     width:400px;
@@ -57,6 +83,18 @@ button:hover{
     box-shadow:0px 3px 8px rgba(0,0,0,0.1);
 }
 
+.join-btn{
+    background:#3a7bd5;
+    color:white;
+    padding:8px 15px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.join-btn:hover{
+    background:#3a7bd5;
+}
+
 .group-title{
     font-size:20px;
     font-weight:bold;
@@ -70,8 +108,121 @@ button:hover{
     display:inline-block;
     margin-bottom:20px;
     padding:10px 15px;
-    background:#28a745;
+    background:#3a7bd5;
     color:white;
     text-decoration:none;
     border-radius:5px;
+}
+
+/* Upload Notes Container */
+.upload-container{
+width:400px;
+margin:60px auto;
+padding:30px;
+background:#ffffff;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+/* Title */
+.upload-title{
+margin-bottom:20px;
+color:#333;
+}
+
+/* Form Inputs */
+.upload-form input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+/* Upload Button */
+.upload-btn{
+background:#4CAF50;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+}
+
+.upload-btn:hover{
+background:#45a049;
+}
+
+/* GROUP PAGE CONTAINER */
+
+.group-container{
+width:70%;
+margin:40px auto;
+font-family:Arial;
+}
+
+/* GROUP TITLE */
+
+.group-title{
+font-size:28px;
+margin-bottom:20px;
+color:#333;
+}
+
+/* UPLOAD BUTTON */
+
+.upload-btn{
+display:inline-block;
+background:#4CAF50;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:5px;
+margin-bottom:25px;
+}
+
+.upload-btn:hover{
+background:#45a049;
+}
+
+/* NOTES TITLE */
+
+.notes-heading{
+margin-top:20px;
+margin-bottom:15px;
+}
+
+/* NOTE CARD */
+
+.note-card{
+background:white;
+padding:15px;
+margin-bottom:15px;
+border-radius:6px;
+box-shadow:0 0 8px rgba(0,0,0,0.1);
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* DOWNLOAD BUTTON */
+
+.download-btn{
+background:#2196F3;
+color:white;
+padding:8px 15px;
+text-decoration:none;
+border-radius:5px;
+}
+
+.download-btn:hover{
+background:#1976D2;
+}
+
+/* EMPTY TEXT */
+
+.no-notes{
+color:gray;
 }

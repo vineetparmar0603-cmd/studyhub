@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static 'notes/css/public_notes.css' %}">
+    </head>
+    <body>
+       <div class="notes-container">
+
+            <h2 class="notes-title">Public Notes Library</h2>
+
+            <a href="/notes/upload/" class="upload-btn">Upload Notes</a>
+
+            <div class="notes-list">
+
+            {% for note in notes %}
+
+            <div class="note-card">
+
+            <h3 class="note-title">{{ note.title }}</h3>
+
+            <p class="note-subject">Subject: {{ note.subject }}</p>
+
+            <a href="{{ note.file.url }}" class="download-btn">Download</a>
+
+            </div>
+
+            {% empty %}
+
+            <p class="no-notes">No notes available.</p>
+
+            {% endfor %}
+
+            </div>
+
+        </div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>

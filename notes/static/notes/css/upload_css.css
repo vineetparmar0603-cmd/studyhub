@@ -1,0 +1,53 @@
+/* UPLOAD PAGE CONTAINER */
+
+.upload-page{
+width:400px;
+margin:60px auto;
+font-family:Arial, sans-serif;
+text-align:center;
+}
+
+/* TITLE */
+
+.upload-title{
+margin-bottom:25px;
+color:#333;
+}
+
+/* FORM CARD */
+
+.upload-form{
+background:white;
+padding:25px;
+border-radius:8px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* INPUT FIELDS */
+
+.upload-form input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+font-size:14px;
+}
+
+/* UPLOAD BUTTON */
+
+.upload-btn{
+width:100%;
+background:#4CAF50;
+color:white;
+padding:10px;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.upload-btn:hover{
+background:#45a049;
+}

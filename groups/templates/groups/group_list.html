@@ -2,40 +2,52 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<title>Study Groups</title>
+    <head>
+        <title>Study Groups</title>
 
-<link rel="stylesheet" href="{% static 'groups/css/groups.css' %}">
+        <link rel="stylesheet" href="{% static 'groups/css/groups.css' %}">
 
-</head>
+    </head>
 
-<body>
+    <body>
+        <form method="GET" class="search-bar">
+            <input type="text" name="q" placeholder="Search groups..." />
+            <button type="submit">Search</button>
+        </form>
 
-<div class="group-container">
+        <div class="group-container">
 
-<h2>Study Groups</h2>
+            <h2>Study Groups</h2>
 
-<a href="/groups/create/" class="create-btn">Create New Group</a>
+            <a href="/groups/create/" class="create-btn">Create New Group</a>
 
-{% for group in groups %}
+            {% for group in groups %}
 
-<div class="group-card">
+            <div class="group-card">
 
-<div class="group-title">{{ group.name }}</div>
+                <div class="group-title">
+                    <h3>
+                    <a href="{% url 'group_detail' group.id %}">
+                    {{ group.name }}
+                    </a>
+                    </h3>
+                </div>
 
-<div class="group-subject">Subject: {{ group.subject }}</div>
+                <div class="group-subject">Subject: {{ group.subject }}</div>
 
-<p>{{ group.description }}</p>
+                <p>{{ group.description }}</p>
 
-</div>
+                <a href="{% url 'join_group' group.id %}" class="join-btn">Join Group</a>
 
-{% empty %}
+            </div>
 
-<p>No groups available.</p>
+            {% empty %}
 
-{% endfor %}
+            <p>No groups available.</p>
 
-</div>
+            {% endfor %}
 
-</body>
+        </div>
+
+    </body>
 </html>
