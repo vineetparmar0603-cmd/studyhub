@@ -1,0 +1,35 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'account/css/profile.css' %}">
+
+<h2>{{ user.username }}'s Profile</h2>
+
+<div class="profile-container">
+
+    <!-- User Info -->
+    <div class="profile-card">
+        <h3>Account Info</h3>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+    </div>
+
+    <!-- Joined Groups -->
+    <div class="profile-card">
+        <h3>Joined Groups</h3>
+        {% for group in joined_groups %}
+            <p>{{ group.name }}</p>
+        {% empty %}
+            <p>No groups joined</p>
+        {% endfor %}
+    </div>
+
+    <!-- Uploaded Notes -->
+    <div class="profile-card">
+        <h3>Uploaded Notes</h3>
+        {% for note in uploaded_notes %}
+            <p>{{ note.title }}</p>
+        {% empty %}
+            <p>No notes uploaded</p>
+        {% endfor %}
+    </div>
+
+</div>

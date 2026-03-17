@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static 'groups/css/groups.css' %}">
+    </head>
+    <body>
+        <h2>{{ group.name }} - Chat</h2>
+
+        <div class="chat-box">
+        {% for message in messages %}
+            <div class="message">
+                <strong>{{ message.user.username }}</strong>
+                <p>{{ message.content }}</p>
+            </div>
+        {% endfor %}
+        </div>
+
+        
+        <form method="POST" class="chat-form">
+        {% csrf_token %}
+        <input type="text" name="content" placeholder="Type a message..." required>
+        <button type="submit">Send</button>
+        </form>
+        
+      
+    </body>
+</html>

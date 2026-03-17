@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from groups.models import Group, Note
 
 def login_view(request):
 
@@ -36,3 +38,16 @@ def register_view(request):
             return redirect('login')
 
     return render(request, 'account/register.html')
+
+@login_required
+def profile(request):
+    user = request.user
+
+    uploaded_notes = Note.objects.filter(uploaded_by=user)
+    joined_groups = user.study_groups.all()
+
+    return render(request, 'account/profile.html', {
+        'user': user,
+        'uploaded_notes': uploaded_notes,
+        'joined_groups': joined_groups
+    })

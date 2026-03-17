@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from groups.models import Group
+from notes.models import Download
 
 # Create your views here.
 def home(request):
@@ -11,9 +12,12 @@ def dashboard(request):
 def dashboard(request):
 
     user_groups = Group.objects.filter(members=request.user)
+    downloads = Download.objects.filter(user=request.user)
+    downloaded_notes = [d.note for d in downloads]
 
     context = {
-        'groups': user_groups
+        'groups': user_groups,
+        'downloaded_notes': downloaded_notes
     }
 
     return render(request, 'mainapp/dashboard.html', context)

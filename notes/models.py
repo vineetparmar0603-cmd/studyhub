@@ -12,3 +12,11 @@ class PublicNote(models.Model):
 
     def _str_(self):
         return self.title
+    
+class Download(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    note = models.ForeignKey('PublicNote', on_delete=models.CASCADE)
+    downloaded_at = models.DateTimeField(auto_now_add=True)
+
+    def _str_(self):
+        return f"{self.user.username} downloaded {self.note.title}"

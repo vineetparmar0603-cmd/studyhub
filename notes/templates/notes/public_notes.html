@@ -12,6 +12,13 @@
         <link rel="stylesheet" href="{% static 'notes/css/public_notes.css' %}">
     </head>
     <body>
+        <form method="GET" class="search-form">
+
+            <input type="text" name="q" placeholder="Search notes by title or subject">
+
+            <button type="submit">Search</button>
+
+        </form>
        <div class="notes-container">
 
             <h2 class="notes-title">Public Notes Library</h2>
@@ -28,8 +35,18 @@
 
             <p class="note-subject">Subject: {{ note.subject }}</p>
 
-            <a href="{{ note.file.url }}" class="download-btn">Download</a>
+            <p class="note-meta">
+                Uploaded by: <b>{{ note.uploaded_by.username }}</b>
+            </p>
 
+            <p class="note-meta">
+                Uploaded on: {{ note.uploaded_at|date:"d M Y" }}
+            </p>
+
+            <a href="{% url 'download_note' note.id %}" class="download-btn">Download</a>
+            {% if note.uploaded_by == request.user %}
+            <a href="{% url 'delete_note' note.id %}" class="delete-btn">Delete</a>
+            {% endif %}
             </div>
 
             {% empty %}

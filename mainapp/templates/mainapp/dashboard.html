@@ -14,7 +14,8 @@
         <nav>
             <a href="/">Home</a>
             <a href="{% url 'group_list' %}">Groups</a>
-            <a href="/notes/">Notes</a>        
+            <a href="/notes/">Notes</a> 
+            <a href="{% url 'profile' %}">Profile</a>       
             <a href="/account/login/">Logout</a>
         </nav>
     </div>
@@ -72,6 +73,38 @@
         {% endfor %}
 
     </div>
+
+</div>
+
+<h3>My Notes</h3>
+
+    <div class="dashboard-section">
+
+    {% for note in downloaded_notes %}
+
+    <div class="dashboard-card">
+    <h4>{{ note.title }}</h4>
+    <p>Subject: {{ note.subject }}</p>
+
+    <p class="note-meta">
+        Uploaded by: <b>{{ note.uploaded_by.username }}</b>
+    </p>
+
+    <p class="note-meta">
+        Uploaded on: {{ note.uploaded_at|date:"d M Y" }}
+    </p>
+
+    <a href="{{ note.file.url }}" class="download-btn">preview</a>
+    {% if note.uploaded_by == request.user %}
+    <a href="{% url 'delete_note' note.id %}" class="delete-btn">Delete</a>
+    {% endif %}
+    </div>
+
+    {% empty %}
+
+    <p>No downloaded notes yet.</p>
+
+    {% endfor %}
 
 </div>
 

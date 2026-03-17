@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.shortcuts import get_object_or_404, redirect
 # Create your views here.
-from .models import Group
+from .models import Group,Message
 from .models import Note
 
 def create_group(request):
@@ -30,7 +30,7 @@ def group_list(request):
 def join_group(request, group_id):
     group = get_object_or_404(Group, id=group_id)
     group.members.add(request.user)
-    return redirect('dashboard')
+    return redirect('group_detail', group_id=group.id)
 
 def group_list(request):
 
@@ -70,10 +70,47 @@ def group_detail(request, group_id):
 
     group = Group.objects.get(id=group_id)
     notes = Note.objects.filter(group=group)
-
+    
     context = {
         'group': group,
-        'notes': notes
+        'notes': notes,
+        
+
     }
 
     return render(request, 'groups/group_detail.html', context)
+
+def group_chat(request, group_id):
+    group = get_object_or_404(Group, id=group_id)
+
+    #  Only members allowed
+    if request.user not in group.members.all():
+        return redirect('group_list')
+
+    messages = Message.objects.filter(group=group).order_by('created_at')
+
+    if request.method == 'POST':
+        content = request.POST.get('content')
+        
+
+        if content:
+            Message.objects.create(
+                group=group,
+                user=request.user,
+                content=content
+            )
+            return redirect('group_chat', group_id=group.id)
+
+    return render(request, 'groups/group_chat.html', {
+        'group': group,
+        'messages': messages
+    })
+
+def group_members(request, group_id):
+    group = Group.objects.get(id=group_id)
+    members = group.members.all()
+
+    return render(request, 'groups/group_members.html', {
+        'group': group,
+        'members': members
+    })

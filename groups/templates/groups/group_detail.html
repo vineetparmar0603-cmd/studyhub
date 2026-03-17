@@ -12,9 +12,14 @@
     </head>
     <body>
        
+       <div class="members-section">
+            <a href="{% url 'group_members' group.id %}" class="members-section">Group members</a>
+       </div>
         <div class="group-container">
 
             <h2 class="group-title">{{ group.name }}</h2>
+
+             <a href="{% url 'group_chat' group.id %}" class="chat-btn">Open Chat</a>
 
             <a href="{% url 'upload_note' group.id %}" class="upload-btn">Upload Notes</a>
 
@@ -34,5 +39,6 @@
             {% endfor %}
 
         </div>
+       
     </body>
 </html>
