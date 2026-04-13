@@ -9,4 +9,5 @@ urlpatterns = [
     path('upload_note/<int:group_id>/', views.upload_note, name='upload_note'),
     path('chat/<int:group_id>/', views.group_chat, name='group_chat'),
     path('groups/<int:group_id>/members/', views.group_members, name='group_members'),
+    path('leave-group/<int:group_id>/', views.leave_group, name='leave_group'),
 ]

@@ -142,7 +142,7 @@ border-radius:5px;
 
 /* Upload Button */
 .upload-btn{
-background:#4CAF50;
+background:#3a7bd5;
 color:white;
 border:none;
 padding:10px 20px;
@@ -152,7 +152,7 @@ font-size:16px;
 }
 
 .upload-btn:hover{
-background:#45a049;
+background:#3a7bd5;
 }
 
 /* GROUP PAGE CONTAINER */
@@ -175,7 +175,7 @@ color:#333;
 
 .upload-btn{
 display:inline-block;
-background:#4CAF50;
+background:#3a7bd5;
 color:white;
 padding:10px 20px;
 text-decoration:none;
@@ -184,7 +184,7 @@ margin-bottom:25px;
 }
 
 .upload-btn:hover{
-background:#45a049;
+background:#3a7bd5;
 }
 
 /* NOTES TITLE */
@@ -354,4 +354,18 @@ color:gray;
     margin-bottom: 10px;
     border-radius: 6px;
     border: 1px solid #ddd;
+}
+
+.leave-btn {
+    display: inline-block;
+    background: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.leave-btn:hover {
+    background: #c82333;
 }

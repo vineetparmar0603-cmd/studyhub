@@ -1,35 +1,63 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'account/css/profile.css' %}">
 
-<h2>{{ user.username }}'s Profile</h2>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'account/css/profile.css' %}">
+</head>
+<body>
 
-<div class="profile-container">
+<div class="container">
 
-    <!-- User Info -->
-    <div class="profile-card">
-        <h3>Account Info</h3>
-        <p><strong>Username:</strong> {{ user.username }}</p>
-        <p><strong>Email:</strong> {{ user.email }}</p>
+    <!-- TOP HEADER -->
+    <div class="header">
+        <h1>Welcome, {{ user.username }} 👋</h1>
     </div>
 
-    <!-- Joined Groups -->
+    <!-- PROFILE CARD -->
     <div class="profile-card">
-        <h3>Joined Groups</h3>
-        {% for group in joined_groups %}
-            <p>{{ group.name }}</p>
-        {% empty %}
-            <p>No groups joined</p>
-        {% endfor %}
+        {% comment %} <img src="{{ user.profile.image.url }}" class="profile-img"> {% endcomment %}
+
+        <h2>{{ user.username }}</h2>
+        <p>{{ user.email }}</p>
     </div>
 
-    <!-- Uploaded Notes -->
-    <div class="profile-card">
-        <h3>Uploaded Notes</h3>
-        {% for note in uploaded_notes %}
-            <p>{{ note.title }}</p>
-        {% empty %}
-            <p>No notes uploaded</p>
-        {% endfor %}
+    <!-- STATS SECTION -->
+    <div class="stats">
+
+        <!-- GROUPS -->
+        <div class="card">
+            <h3>Joined Groups</h3>
+
+            {% if joined_groups %}
+                <ul>
+                    {% for group in joined_groups %}
+                        <li>{{ group.name }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No groups joined</p>
+            {% endif %}
+        </div>
+
+        <!-- NOTES -->
+        <div class="card">
+            <h3>Uploaded Notes</h3>
+
+            {% if notes %}
+                <ul>
+                    {% for note in notes %}
+                        <li>{{ note.title }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No notes uploaded</p>
+            {% endif %}
+        </div>
+
     </div>
 
 </div>
+
+</body>
+</html>

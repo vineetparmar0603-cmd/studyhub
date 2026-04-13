@@ -5,6 +5,7 @@
     <title>Dashboard - StudyHub</title>
     {% comment %} <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'mainapp/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
 </head>
 <body>
 
@@ -15,7 +16,8 @@
             <a href="/">Home</a>
             <a href="{% url 'group_list' %}">Groups</a>
             <a href="/notes/">Notes</a> 
-            <a href="{% url 'profile' %}">Profile</a>       
+            <a href="{% url 'profile' %}">Profile</a>  
+            <a href="/feedback/"> Feedback</a>     
             <a href="/account/login/">Logout</a>
         </nav>
     </div>

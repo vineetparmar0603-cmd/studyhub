@@ -43,11 +43,11 @@ def register_view(request):
 def profile(request):
     user = request.user
 
-    uploaded_notes = Note.objects.filter(uploaded_by=user)
-    joined_groups = user.study_groups.all()
+    joined_groups = Group.objects.filter(members=user)  # adjust if your field name differs
+    notes = Note.objects.filter(uploaded_by=user)
 
     return render(request, 'account/profile.html', {
         'user': user,
-        'uploaded_notes': uploaded_notes,
-        'joined_groups': joined_groups
+        'joined_groups': joined_groups,
+        'notes': notes
     })

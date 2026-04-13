@@ -28,7 +28,13 @@
             {% endfor %}
 
         </div>
-        
+        </div>
+
+        <a href="{% url 'leave_group' group.id %}" 
+        class="leave-btn"
+        onclick="return confirm('Are you sure you want to leave this group?');">
+        Leave Group
+        </a>
         <script src="" async defer></script>
     </body>
 </html>

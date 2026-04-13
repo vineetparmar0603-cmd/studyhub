@@ -15,7 +15,7 @@ class Group(models.Model):
         return self.name
 
 class Note(models.Model):
-    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE,related_name='notes')
     title = models.CharField(max_length=200)
     file = models.FileField(upload_to='group_notes/')
     uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE)

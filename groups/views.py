@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, redirect
 # Create your views here.
 from .models import Group,Message
 from .models import Note
+from django.contrib.auth.decorators import login_required
 
 def create_group(request):
     if request.method == "POST":
@@ -32,8 +33,10 @@ def join_group(request, group_id):
     group.members.add(request.user)
     return redirect('group_detail', group_id=group.id)
 
+@login_required
 def group_list(request):
 
+    
     query = request.GET.get('q')
 
     if query:
@@ -67,6 +70,8 @@ def upload_note(request, group_id):
     return render(request, 'groups/upload_note.html', {'group': group})
 
 def group_detail(request, group_id):
+
+    
 
     group = Group.objects.get(id=group_id)
     notes = Note.objects.filter(group=group)
@@ -114,3 +119,12 @@ def group_members(request, group_id):
         'group': group,
         'members': members
     })
+
+@login_required
+def leave_group(request, group_id):
+    group = get_object_or_404(Group, id=group_id)
+
+    # Remove user from group
+    group.members.remove(request.user)
+
+    return redirect('group_list ')  # redirect to group list page 

@@ -38,7 +38,7 @@ font-size:14px;
 
 .upload-btn{
 width:100%;
-background:#4CAF50;
+background:#3a7bd5;
 color:white;
 padding:10px;
 border:none;
@@ -49,5 +49,5 @@ margin-top:10px;
 }
 
 .upload-btn:hover{
-background:#45a049;
+background:#3a7bd5;
 }
