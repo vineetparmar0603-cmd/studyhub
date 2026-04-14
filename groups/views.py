@@ -127,4 +127,4 @@ def leave_group(request, group_id):
     # Remove user from group
     group.members.remove(request.user)
 
-    return redirect('group_list ')  # redirect to group list page 
+    return redirect('group_list')  # redirect to group list page 
